@@ -17,7 +17,7 @@ import kotlin.random.nextInt
 class MainActivity : AppCompatActivity() {
 
 
-    var RandomNumber = Random.nextInt(1..6)
+    var RandomNumber = 0
     private var soundPool: SoundPool? = null
     private var soundId1: Int = 0
     private var soundId2: Int = 0
@@ -41,8 +41,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<ImageView>(R.id.dice).setOnClickListener {
             Animate(it)
             MainScope().launch {
-
-
+                RandomNumber = (1..6).random()
                 findViewById<ImageView>(R.id.dice).setImageResource(
                         when(RandomNumber)
                         {
